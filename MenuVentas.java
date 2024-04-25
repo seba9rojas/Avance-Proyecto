@@ -1,20 +1,27 @@
-public class MenuVentaEntradas {
-    private ArrayList<Evento> eventos;
-    private Map<String, Usuario> usuariosRegistrados;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class MenuVentaEntradas{
+    private final ArrayList<Evento> eventos;
+    private final Map<String, Usuario> usuariosRegistrados;
 
     // Constructor
-    public MenuVentaEntradas() {
+    public MenuVentaEntradas(){
         eventos = new ArrayList<>();
         usuariosRegistrados = new HashMap<>();
     }
 
     // Método para agregar un evento al sistema
-    public void agregarEvento(Evento evento) {
+    public void agregarEvento(Evento evento){
         eventos.add(evento);
     }
 
     // Método para agregar un usuario al sistema
-    public void agregarUsuario(Usuario usuario) {
+    public void agregarUsuario(Usuario usuario){
         usuariosRegistrados.put(usuario.getNombreUsuario(), usuario);
     }
 
@@ -108,3 +115,128 @@ public class MenuVentaEntradas {
             System.out.println("Número de evento no válido.");
         }
     }
+
+    // Método para agregar un evento al sistema (requiere autenticación de usuario)
+    public void agregarEventoAutenticado() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        // Autenticar al usuario
+        System.out.print("Ingrese su nombre de usuario: ");
+        String nombreUsuario = reader.readLine();
+        System.out.print("Ingrese su contraseña: ");
+        String contrasena = reader.readLine();
+
+        if (!autenticarUsuario(nombreUsuario, contrasena)) {
+            System.out.println("Nombre de usuario o contraseña incorrectos. No tiene permiso para agregar eventos.");
+            return;
+        }
+
+        // Pedir datos del evento
+        System.out.println("\nIngrese los datos del nuevo evento:");
+        System.out.print("Nombre del evento: ");
+        String nombreEvento = reader.readLine();
+        System.out.print("Fecha del evento (YYYY-MM-DD): ");
+        String fechaEvento = reader.readLine();
+        System.out.print("Capacidad del evento: ");
+        int capacidadEvento = Integer.parseInt(reader.readLine());
+        System.out.print("Descripción del evento: ");
+        String descripcionEvento = reader.readLine();
+        System.out.print("Lugar del evento: ");
+        String lugarEvento = reader.readLine();
+        System.out.print("Hora del evento: ");
+        String horaEvento = reader.readLine();
+        System.out.print("Artistas invitados: ");
+        String artistasInvitados = reader.readLine();
+        System.out.print("Entradas disponibles: ");
+        int entradasDisponibles = Integer.parseInt(reader.readLine());
+
+        // Crear el nuevo evento y agregarlo a la lista
+        Evento nuevoEvento = new Evento(nombreEvento, fechaEvento, capacidadEvento, descripcionEvento, lugarEvento, horaEvento, artistasInvitados, entradasDisponibles);
+        agregarEvento(nuevoEvento);
+
+        System.out.println("Evento agregado con éxito.");
+    }
+
+    // Método para mostrar el menú de la aplicación
+    public void mostrarMenu() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int opcion;
+
+        do {
+            System.out.println("\nMenú:");
+            System.out.println("1. Ver lista de eventos");
+            System.out.println("2. Ver disponibilidad de entradas para un evento");
+            System.out.println("3. Ver detalles de un evento");
+            System.out.println("4. Comprar entradas para un evento");
+            System.out.println("5. Registrar usuario");
+            System.out.println("6. Iniciar sesión");
+            System.out.println("7. Agregar evento");
+            System.out.println("8. Salir");
+            System.out.print("Ingrese el número de la opción deseada: ");
+
+            opcion = Integer.parseInt(reader.readLine());
+
+            switch(opcion){
+                case 1:
+                    mostrarEventos();
+                    break;
+                case 2:
+                    verDisponibilidadEntradas();
+                    break;
+                case 3:
+                    verDetallesEvento();
+                    break;
+                case 4:
+                    comprarEntradas();
+                    break;
+                case 5:
+                    registrarUsuario();
+                    break;
+                case 6:
+                    iniciarSesion();
+                    break;
+                case 7:
+                    agregarEventoAutenticado();
+                    break;
+                case 8:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, ingrese un número válido.");
+            }
+        } while (opcion != 8);
+    }
+
+    // Método para registrar un nuevo usuario
+    public void registrarUsuario() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("\nRegistro de Usuario:");
+        System.out.print("Ingrese el nombre de usuario: ");
+        String nombreUsuario = reader.readLine();
+        System.out.print("Ingrese la contraseña: ");
+        String contrasena = reader.readLine();
+
+        Usuario nuevoUsuario = new Usuario(nombreUsuario, contrasena);
+        agregarUsuario(nuevoUsuario);
+
+        System.out.println("Usuario registrado con éxito.");
+    }
+
+    // Método para iniciar sesión de usuario
+    public void iniciarSesion() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("\nIniciar Sesión:");
+        System.out.print("Ingrese el nombre de usuario: ");
+        String nombreUsuario = reader.readLine();
+        System.out.print("Ingrese la contraseña: ");
+        String contrasena = reader.readLine();
+
+        if (autenticarUsuario(nombreUsuario, contrasena)) {
+            System.out.println("Inicio de sesión exitoso. ¡Bienvenido, " + nombreUsuario + "!");
+        } else {
+            System.out.println("Inicio de sesión fallido. Nombre de usuario o contraseña incorrectos.");
+        }
+    }
+}
