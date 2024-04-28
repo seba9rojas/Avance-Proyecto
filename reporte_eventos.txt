@@ -1,0 +1,25 @@
+Reporte de Eventos
+------------------
+ID: 1
+Nombre: Concierto
+Ubicaci�n: Estadio Santa Laura
+Entradas restantes: 2
+Precio de entrada: 100000
+
+ID: 2
+Nombre: Obra de Teatro
+Ubicaci�n: Teatro Municipal
+Entradas restantes: 0
+Precio de entrada: 40
+
+ID: 3
+Nombre: Partido de Futbol
+Ubicaci�n: Estadio Nacional
+Entradas restantes: 0
+Precio de entrada: 20
+
+ID: 4
+Nombre: el colo vs la u
+Ubicaci�n: estadio nacional
+Entradas restantes: 0
+Precio de entrada: 20000
