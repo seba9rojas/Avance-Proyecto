@@ -1,0 +1,8 @@
+Reporte de Usuarios
+-------------------
+RUT: 191111111
+Contrase�a: bbb123
+
+RUT: 74544541(admin)
+Contrase�a: ccc123
+
