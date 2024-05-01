@@ -29,7 +29,7 @@ Para hacer que el código sea utilizable, hay que hacer modificaciones en los di
 - Darle click derecho en los nombres de estos archivos y clickear Copy File Path. Esto hay que hacerlo para las lineas que trabajan con eventos.csv y usuarios.csv.
 - Pegar las direcciones en las lineas correspondientes.
 
-Aquí hay un listado de las lineas que hay que cambiar para que el código funcione. Para localizar fácilmente las lineas se puede usar Ctrl+F y poner \\java\\eventos o \\java\\usuarios.
+Aquí hay un listado de las lineas que hay que cambiar para que el código funcione. Para localizar fácilmente las lineas se puede usar Ctrl+F y poner \\\java\\\eventos o \\\java\\\usuarios.
 
 En CSVManager:
 - Linea 149 (usuarios)
