@@ -1,20 +1,12 @@
 Proyecto Venta de entradas
 
 Compilación
-Para compilar el código, asegúrate de tener Java Development Kit (JDK) instalado en tu sistema. Luego, ejecuta el siguiente comando en la terminal:
-
-javac MenuVentaEntradasV2.java
+Para compilar el código, asegúrate de tener Java Development Kit (JDK) instalado en tu sistema. Luego, ejecuta el programa desde netbeans y importa el proyecto desde archivo zip.
 
 Ejecución
-Una vez compilado el código, puedes ejecutar el programa con el siguiente comando:
-
-java MenuVentaEntradasV2
-
-Esto iniciará el programa y mostrará un menú interactivo en la consola donde podrás interactuar con el sistema de venta de entradas y si desea compilar y ejecutar el programa en una app o pagina web solo debe descargar el archivo e importarlo en la app o pagina web para poder ejecutar.
-
+Esto iniciará el programa y mostrará un menú interactivo en la consola donde podrás interactuar con el sistema de venta de entradas. A partir desde el main se mostrarán distintas funcionalidades que ésta provee. 
 
 Acciones de los Usuarios
-
 Al ejecutar el programa, los usuarios podrán realizar las siguientes acciones:
 
 1. Mostrar lista de eventos.
@@ -30,9 +22,7 @@ Al ejecutar el programa, los usuarios podrán realizar las siguientes acciones:
 11. Mostrar reporte (admin).
 0. Salir.
 
-
-
-
+Recomendaciones IMPORTANTE:
 Para hacer que el código sea utilizable, hay que hacer modificaciones en los directorios en los que se encuentran los archivos CSV utilizados. Para ello hay que seguir un paso a paso dentro de netbeans:
 
 - Hacer doble clic en los archivos eventos.csv y usuarios.csv
@@ -74,5 +64,4 @@ Para las ventanas, hay que darle doble click a cada una de las ventanas y luego 
 - VentanaReporte Linea 72 (eventos), Linea 101 (usuarios)
 
 
-Hecho esto, se pueden ejecutar las ventanas dándole click derecho por ejemplo a Ventana1 en la sección files en la parte izquierda de netbeans, y luego Run File.
-Lo mismo aplica para el resto de ventanas.
+Hecho esto, se pueden ejecutar las ventanas dándole click derecho por ejemplo a Ventana1 en la sección files en la parte izquierda de netbeans, y luego Run File. A partir de la ventana1 se podrán ir mostrando las demás, según lo que requiera el usuario cuando ingresa a las distintas funcionalidades.
